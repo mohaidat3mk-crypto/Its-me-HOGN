@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOGN | Gaming Profile</title>
+<style>
+:root{--red:#e50914;--bg:#080808;--panel:#101010;--border:#262626;--muted:#858585}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#f5f5f5;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+a{color:inherit}
+header{height:76px;padding:0 8%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #202020;background:rgba(8,8,8,.96);position:sticky;top:0;z-index:10}
+.logo{font-size:29px;font-weight:900;letter-spacing:4px;color:#fff;text-decoration:none}
+.logo .red-o{color:var(--red)}
+.logo .dot{color:#fff}
+.location{display:flex;align-items:center;gap:8px;color:#aaa;font-size:11px;letter-spacing:3px}
+.location-icon{width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;color:var(--red)}
+.location-icon svg{width:17px;height:17px}
+.hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:65px 20px;background:radial-gradient(ellipse at 50% 45%,#2a0609 0%,#140405 32%,#080808 72%)}
+.hero h1{font-size:clamp(58px,12vw,118px);font-weight:900;letter-spacing:12px;text-shadow:0 0 35px #e5091430;animation:appear .9s ease}
+.hero h1 .red-o{color:var(--red)}
+.profile-btn{display:inline-block;margin-top:30px;padding:15px 35px;border:1px solid var(--red);color:white;text-decoration:none;font-size:11px;font-weight:bold;letter-spacing:3px;transition:.25s}
+.profile-btn:hover{background:var(--red);box-shadow:0 0 24px #e5091455;transform:translateY(-3px)}
+section{padding:62px 8%}
+.section-head{display:flex;align-items:center;gap:13px;margin-bottom:27px}
+.section-head:before{content:"";width:4px;height:27px;background:var(--red);flex-shrink:0}
+.section-head h2{font-size:23px;letter-spacing:1.5px}
+.section-head p{margin-left:auto;color:#666;font-size:10px;letter-spacing:2px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.game{display:block;min-width:0;background:var(--panel);border:1px solid var(--border);overflow:hidden;text-decoration:none;transition:transform .25s,border-color .25s}
+.game:hover{transform:translateY(-5px);border-color:var(--red)}
+.game img{display:block;width:100%;aspect-ratio:460/215;object-fit:cover;background:#171717;transition:transform .3s}
+.game:hover img{transform:scale(1.035)}
+.game-info{padding:14px}
+.game-info h3{font-size:13px;line-height:1.5;margin-bottom:9px}
+.game-info span{font-size:10px;letter-spacing:2px;color:var(--red)}
+.nothing-section{padding-top:35px;padding-bottom:70px}
+.nothing-card{position:relative;min-height:270px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(120deg,#100909,#0b0b0b 55%,#160406);border:1px solid #302020}
+.nothing-card:before,.nothing-card:after{content:"";position:absolute;background:var(--red);opacity:.65}
+.nothing-card:before{width:70px;height:1px;top:30px;left:30px}
+.nothing-card:after{width:1px;height:70px;top:30px;left:30px}
+.nothing-inner{position:relative;z-index:1;padding:35px 20px}
+.nothing-label{font-size:10px;letter-spacing:5px;color:var(--red);margin-bottom:20px}
+.nothing-title{font-size:clamp(42px,8vw,78px);font-weight:900;letter-spacing:10px;color:#f2f2f2}
+.nothing-line{width:45px;height:2px;background:var(--red);margin:22px auto}
+.nothing-subtitle{font-size:11px;letter-spacing:4px;color:#777}
+.final-profile{text-align:center;padding:65px 20px 75px;background:linear-gradient(180deg,#080808,#160304)}
+.final-profile h2{font-size:24px;letter-spacing:3px}
+.final-profile p{margin-top:12px;color:#888;font-size:12px;letter-spacing:1px}
+footer{padding:24px;text-align:center;border-top:1px solid #202020;color:#666;font-size:10px;letter-spacing:2px}
+footer span{color:var(--red)}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+header{height:65px;padding:0 5%}
+.logo{font-size:23px}
+.location{font-size:10px;letter-spacing:2px}
+.location-icon svg{width:15px;height:15px}
+.hero{min-height:44vh}
+.hero h1{letter-spacing:7px}
+section{padding:43px 5%}
+.games{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.game-info{padding:10px}
+.game-info h3{font-size:12px}
+.section-head h2{font-size:18px}
+.section-head p{font-size:8px;letter-spacing:1px}
+.nothing-card{min-height:230px}
+.nothing-title{letter-spacing:6px}
+.nothing-subtitle{letter-spacing:2px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#"><span>H</span><span class="red-o">O</span><span>GN</span><span class="dot">.</span></a>
+  <div class="location">
+    <span class="location-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+        <circle cx="12" cy="10" r="2.5"/>
+      </svg>
+    </span>
+    <span>JORDAN</span>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1><span>H</span><span class="red-o">O</span><span>GN</span><span>.</span></h1>
+    <a class="profile-btn" href="https://guns.lol/.hogn./" target="_blank" rel="noopener noreferrer">MY PROFILE ↗</a>
+  </div>
+
+  <section id="resident-evil">
+    <div class="section-head"><h2>RESIDENT EVIL</h2><p>SURVIVAL HORROR</p></div>
+    <div class="games">
+      <a class="game" href="https://store.steampowered.com/app/1196590/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg" alt="Resident Evil Village">
+        <div class="game-info"><h3>Resident Evil Village</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/883710/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/883710/header.jpg" alt="Resident Evil 2 Remake">
+        <div class="game-info"><h3>Resident Evil 2 Remake</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/952060/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/952060/header.jpg" alt="Resident Evil 3 Remake">
+        <div class="game-info"><h3>Resident Evil 3 Remake</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/2050650/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4 Remake">
+        <div class="game-info"><h3>Resident Evil 4 Remake</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/418370/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/418370/header.jpg" alt="Resident Evil 7">
+        <div class="game-info"><h3>Resident Evil 7</h3><span>STEAM ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="hitman">
+    <div class="section-head"><h2>HITMAN</h2><p>THE WORLD OF ASSASSINATION</p></div>
+    <div class="games">
+      <a class="game" href="https://store.steampowered.com/app/236870/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/236870/header.jpg" alt="HITMAN">
+        <div class="game-info"><h3>HITMAN</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/863550/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/863550/header.jpg" alt="HITMAN 2">
+        <div class="game-info"><h3>HITMAN 2</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/1659040/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1659040/header.jpg" alt="HITMAN World of Assassination">
+        <div class="game-info"><h3>HITMAN World of Assassination</h3><span>STEAM ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="fnaf">
+    <div class="section-head"><h2>FIVE NIGHTS AT FREDDY'S</h2><p>DON'T LET THEM IN</p></div>
+    <div class="games">
+      <a class="game" href="https://store.steampowered.com/app/319510/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/319510/header.jpg" alt="Five Nights at Freddy's">
+        <div class="game-info"><h3>Five Nights at Freddy's</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/871720/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/871720/header.jpg" alt="Ultimate Custom Night">
+        <div class="game-info"><h3>Ultimate Custom Night</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/747660/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/747660/header.jpg" alt="Security Breach">
+        <div class="game-info"><h3>Security Breach</h3><span>STEAM ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="adventure">
+    <div class="section-head"><h2>ADVENTURE & HORROR</h2><p>ENTER THE UNKNOWN</p></div>
+    <div class="games">
+      <a class="game" href="https://store.steampowered.com/app/1659420/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1659420/header.jpg" alt="Uncharted Legacy of Thieves">
+        <div class="game-info"><h3>Uncharted: Legacy of Thieves</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/238320/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/238320/header.jpg" alt="Outlast">
+        <div class="game-info"><h3>Outlast</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/1693980/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1693980/header.jpg" alt="Dead Space">
+        <div class="game-info"><h3>Dead Space</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/739630/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/739630/header.jpg" alt="Phasmophobia">
+        <div class="game-info"><h3>Phasmophobia</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/2141730/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2141730/header.jpg" alt="Backrooms Escape Together">
+        <div class="game-info"><h3>Backrooms: Escape Together</h3><span>STEAM ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="shooters">
+    <div class="section-head"><h2>SHOOTER GAMES</h2><p>LOCK. AIM. FIRE.</p></div>
+    <div class="games">
+      <a class="game" href="https://store.steampowered.com/app/730/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" alt="Counter-Strike 2">
+        <div class="game-info"><h3>Counter-Strike 2</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/578080/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg" alt="PUBG">
+        <div class="game-info"><h3>PUBG: Battlegrounds</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/1172470/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg" alt="Apex Legends">
+        <div class="game-info"><h3>Apex Legends</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/359550/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/359550/header.jpg" alt="Rainbow Six Siege">
+        <div class="game-info"><h3>Rainbow Six Siege</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/2519060/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2519060/header.jpg" alt="Call of Duty Modern Warfare III">
+        <div class="game-info"><h3>Call of Duty: Modern Warfare III</h3><span>STEAM ↗</span></div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/782330/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg" alt="DOOM Eternal">
+        <div class="game-info"><h3>DOOM Eternal</h3><span>STEAM ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="nothing-section" id="nothing">
+    <div class="section-head"><h2>UNKNOWN</h2><p>CLASSIFIED</p></div>
+    <div class="nothing-card">
+      <div class="nothing-inner">
+        <div class="nothing-label">NO DETAILS. NO ANSWERS.</div>
+        <h2 class="nothing-title">NOTHING</h2>
+        <div class="nothing-line"></div>
+        <p class="nothing-subtitle">SOME THINGS ARE BETTER LEFT UNKNOWN.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="final-profile">
+    <h2>WANT TO KNOW MORE?</h2>
+    <p>YOU KNOW WHERE TO FIND ME.</p>
+    <a class="profile-btn" href="https://guns.lol/.hogn./" target="_blank" rel="noopener noreferrer">VISIT MY PROFILE ↗</a>
+  </div>
+</main>
+
+<footer>© HOGN <span>•</span> ALL RIGHTS RESERVED</footer>
+
+</body>
+</html>
